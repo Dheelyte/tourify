@@ -6,7 +6,7 @@ const Loader = () => {
             <div class="lds-grid">
                 <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
             </div>
-            <p>Loading your favourite places...</p>
+            <p>Loading...</p>
             </div>
         </div>
     )

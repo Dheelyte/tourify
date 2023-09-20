@@ -1,5 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
 body {
-  color: #ffffff;
   box-sizing: border-box;
   transition: all 0.5s;
 }
@@ -140,9 +142,6 @@ nav a:hover {
   background-color: orange;
   color: #000;
 }
-h1 {
-  color: orange;
-}
 header {
   position: fixed;
   top: 0;
@@ -158,7 +157,8 @@ header {
 }
 .brand-name {
   display: flex;
-  align-items: center
+  align-items: center;
+  font-weight: bold;
 }
 .brand-name .home {
   color: orange;
@@ -205,19 +205,86 @@ header {
 .hero {
   top: 80px;
   position: relative;
-  height: calc(100vh - 80px);
   text-align: center;
+}
+.body {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: left;
+  width: 100%;
+  align-items: center;
+  background-color: #f5f1f8;
+}
+.body .row {
+  padding: 30px;
+  flex: 1 0 300px;
+}
+.body .row:first-child {
+  padding-left: 60px;
+}
+.body .row:last-child {
+  animation-name: floating;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+@keyframes floating {
+  0% {transform: translateY(0px);}
+  50% {transform: translateY(30px);}
+  100% {transform: translateY(-0px);}
+}
+.get-started {
+  padding: 20px 30px;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: blueviolet;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: all 0.5s;
+  border: none;
+  cursor: pointer;
+}
+.get-started:hover {
+  color: #fff;
+  background-color: orange;
+}
+.body .illustration img {
+  width: 90%;
+  margin-right: 0;
+  height: 50%;
+}
+.body h1 {
+  font-size: 45px;
+  margin: 0 30px 0 0;
+  font-weight: bold;
+}
+@media screen and (max-width: 1024px) {
+  .body h1 {
+  font-size: 40px;
+  font-weight: bold;
+  }
+}
+@media screen and (max-width: 768px) {
+  .body h1 {
+  font-size: 30px;
+  font-weight: bold;
+}
+}
+.body .last {
+  margin: 30px 30px 60px 0;
+  font-size: 20px;
+  line-height: 30px;
 }
 .hero .container {
   box-sizing: border-box;
   width: 100%;
-  padding: 0 20px;
+  padding: 80px 20px;
+  scroll-margin-top: 120px;
 }
 .hero .name {
   display: flex;
   gap: 15px;
   justify-content: center;
-  margin-top: 50px;
 }
 .typing p {
   font-size: 20px;
@@ -229,6 +296,8 @@ header {
   width: 100%;
   max-width: 600px;
   margin: auto;
+  scroll-margin-top: 150px;
+  transition: all 0.5s;
 }
 .cta-social .categories {
   position: absolute;
@@ -302,6 +371,111 @@ header {
 .hero .container .social a img {
   width: 30px;
 }
+.section-1 {
+  text-align: center;
+  padding: 100px 30px;
+  background-color: #f5f1f8;
+}
+.section-1 h1 {
+  margin-bottom: 50px;
+}
+.section-1 .row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+.section-1 .card {
+  flex: 1;
+}
+.section-1 .card .illustration {
+  width: 150px;
+  border-radius: 150px;
+  background-color: #00ff00;
+  margin: auto;
+  padding: 38px 0;
+}
+.section-1 .card .illustration-1 {
+  background: rgb(0,255,64);
+background: linear-gradient(135deg, rgba(0,255,64,1) 0%, rgba(171,0,255,1) 100%);
+  
+}
+.section-1 .card .illustration-2 {
+  background: rgb(0,4,80);
+  background: linear-gradient(135deg, rgba(0,4,80,1) 0%, rgba(0,176,255,1) 100%);
+}
+.section-1 .card .illustration-3 {
+  background: rgb(0,158,18);
+  background: linear-gradient(135deg, rgba(0,158,18,1) 0%, rgba(255,252,0,1) 100%);
+}
+.section-1 .card .illustration-4 {
+  background: rgb(255,0,176);
+  background: linear-gradient(135deg, rgba(255,0,176,1) 0%, rgba(171,0,255,1) 100%);
+}
+.section-1 .card img {
+  width: 70px;
+}
+.section-1 .card p {
+  color: #616161;
+  font-size: 14px;
+}
+
+.faq{
+  padding: 100px 10px;
+  max-width: 900px;
+  margin:auto
+}
+.faq h1{
+  padding-bottom: 30px;
+  text-align: center;
+}
+.title{
+  text-align: center;
+  font-family: Arial;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  color: #000 !important;
+}
+.accordion__item{
+  margin-bottom: 10px
+}
+.accordion__item__header{
+  background-color: #CBEAFE;
+  padding: 15px;
+  cursor: pointer;
+  position: relative;
+  color: #000;
+  font-family: Arial;
+  font-weight: 400;
+}
+.accordion__item__header::before{
+  height: 15px;
+  width: 15px;
+  content: "";
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  transition: .5s all;
+  transform: rotate(45deg);
+  border-right: 2px solid #000;
+  border-bottom: 2px solid #000}
+.accordion__item__header.focused{
+  background-color:#33a0ff;
+  color:#fff;
+  transition: .5s
+}
+.accordion__item__header.focused::before{
+  transform: rotate(-135deg);
+  top: 23px;
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff}
+.accordion__item__content{
+  overflow-y: auto;
+  padding: 0;
+  display: none}
+.title {
+  color: #fdfdfe;
+}
 .explore {
   top: 80px;
   position: relative;
@@ -335,6 +509,7 @@ header {
   border-radius: 10px;
   background-color: #fff;
   transition: all 0.5s;
+  cursor: pointer;
 }
 .blog .container article:hover {
   transform: scale(1.05);
@@ -386,4 +561,58 @@ header {
   padding: 5px;
   font-size: 12px;
   border-radius: 5px;
+}
+
+footer {
+  background-color: rgb(79, 79, 79);
+  color: #fff;
+  padding: 80px 80px 40px;
+}
+footer h2 {
+  text-align: center;
+  color: #00ff00;
+  margin-bottom: 35px;
+}
+footer .contact {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+footer .contact img {
+  width: 30px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+footer table {
+  width: 80%;
+  table-layout: fixed;
+  text-align: center;
+  letter-spacing: 1px;
+  margin: 0 auto;
+}
+footer table th {
+  padding-bottom: 30px;
+  color: #00ff00;
+}
+footer table td {
+  padding-bottom: 20px;
+}
+@media screen and (max-width: 425px) {
+  footer {
+      padding: 80px 20px 20px;
+  }
+  footer table {
+      margin: 0;
+      width: 100%;
+  }
+  footer table td {
+      padding-bottom: 10px;
+  }
+}
+footer p {
+  text-align: center;
+  margin-top: 40px;
+}
+footer p a {
+  color: #fff;
 }
