@@ -1,24 +1,27 @@
-import logo from './logo.svg';
+import { lazy, Suspense } from 'react';
+import { Routes, Route } from 'react-router-dom'
 import './App.css';
+import Header from './components/Header'
+import Loader from './components/Loader'
+const Hero = lazy(() => import('./components/Hero'))
+const Explore = lazy(() => import('./components/Explore'))
+const ExploreDetails = lazy(() => import('./components/ExploreDetails'))
+const NotFound = lazy(() => import('./components/NotFound'))
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      <Suspense fallback={<Loader />}>
+        <Routes>
+          <Route path='/' element={<Hero />} />
+          <Route path='/explore' element={<Explore />} />
+          <Route path="exploreDetail/" element={<ExploreDetails />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Suspense>
+    </>
   );
 }
 

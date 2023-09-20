@@ -4,6 +4,7 @@ from django.contrib.auth import get_user_model
 User = get_user_model()
 
 class UserSerializer(serializers.ModelSerializer):
+    slug = serializers.SlugField(read_only=True)
     class Meta:
         model = User
-        fields = ['name', 'email', 'slug',]
+        fields = ('id', 'slug', 'name', 'email',)
