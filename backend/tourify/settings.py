@@ -55,6 +55,7 @@ MIDDLEWARE = [
 ]
 
 CORS_ORIGIN_WHITELIST = [
+    'https://tourify-nbzf.onrender.com/',
     'http://localhost:3000',
 ]
 

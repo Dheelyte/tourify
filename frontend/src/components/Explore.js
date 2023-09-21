@@ -898,7 +898,7 @@ const Explore = () => {
             lon: lon,
         };
         const placeBody = JSON.stringify(placeData);
-        const apiUrl = 'http://127.0.0.1:8000/explore/get-place-info/';
+        const apiUrl = 'https://tourify-backend.onrender.com/explore/get-place-info/';
 
         fetch(apiUrl, {
             method: 'POST',
