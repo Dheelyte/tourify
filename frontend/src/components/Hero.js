@@ -44,13 +44,12 @@ export default function Hero () {
     }
 
     const setPosition = (position) => {
-        alert(position.coords.latitude + ` and ` + position.coords.longitude)
         const longitude = position.coords.longitude
         const latitude = position.coords.latitude
         navigate(`explore?category=${category}&lon=${longitude}&lat=${latitude}`)
     }
     const allowAccess = () => {
-        alert("Allow access");
+        alert("Allow Location access");
     }
 
     const locationExplore = (e) => {
@@ -121,13 +120,13 @@ export default function Hero () {
             </div>
 
             <div className="section-1" id="features">
-        <h1>App Features</h1>
+        <h1>Features</h1>
         <div className="row">
             <div className="card">
                 <div className="illustration illustration-1">
                     <img src={calendar} className="feature-card" alt="" />
                 </div>
-                <h2>Create schedule</h2>
+                <h2>Get Directions</h2>
                 <p>THis is a new feature. stay tunes for more feature releases.</p>
             </div>
             <div className="card">
@@ -161,7 +160,7 @@ export default function Hero () {
         
          <div className="accordion__item">
             <div className="accordion__item__header">
-             What is an FAQ page?
+             What is Tourify?
             </div>
         
             <div className="accordion__item__content">
@@ -181,7 +180,7 @@ export default function Hero () {
         
           <div className="accordion__item">
             <div className="accordion__item__header">
-             Why you should make an FAQ page?
+             Why you should make use of Tourify?
             </div>
         
             <div className="accordion__item__content">
@@ -193,7 +192,7 @@ export default function Hero () {
         
           <div className="accordion__item">
             <div className="accordion__item__header">
-             How to make an FAQ page?
+             How to do I get directions to a place on Tourify?
             </div>
         
             <div className="accordion__item__content">
@@ -216,27 +215,31 @@ export default function Hero () {
             <img src={phone} alt="" />
         </div>
         <table>
-            <tr>
-                <th>COMPANY</th>
-                <th>ABOUT</th>
-                <th>SOCIAL</th>
-            </tr>
-            <tr>
-                <td>Our Vision</td>
-                <td>Donate</td>
-                <td>Twitter</td>
-            </tr>
-            <tr>
-                <td>The Team</td>
-                <td>About Us</td>
-                <td>Facebook</td>
-                
-            </tr>
-            <tr>
-                <td>Awards</td>
-                <td>Our mission</td>
-                <td>Instagram</td>
-            </tr>
+            <thead>
+                <tr>
+                    <td>COMPANY</td>
+                    <td>ABOUT</td>
+                    <td>SOCIAL</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Our Vision</td>
+                    <td>Donate</td>
+                    <td>Twitter</td>
+                </tr>
+                <tr>
+                    <td>The Team</td>
+                    <td>About Us</td>
+                    <td>Facebook</td>
+                    
+                </tr>
+                <tr>
+                    <td>Awards</td>
+                    <td>Our mission</td>
+                    <td>Instagram</td>
+                </tr>
+            </tbody>
         </table>
         <p>Made with ❤ by <a href="https://www.linkedin.com/in/delight-olagbuji">Delight</a></p>
     </footer>

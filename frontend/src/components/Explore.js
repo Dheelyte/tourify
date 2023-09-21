@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import Loader from './Loader';
+import Error from './Error';
 import defaultImage from '../images/nasa.jpg'
 
 
@@ -887,6 +888,7 @@ const Explore = () => {
     // }
     const [places, setPlaces] = useState([]);
     const [loading, setLoading] = useState(true); // Add loading state
+    const [error, setError] = useState(false)
   
     useEffect(() => {
 
@@ -914,6 +916,7 @@ const Explore = () => {
         .catch((error) => {
             console.error('Error:', error);
             setLoading(false); // Set loading to false on error
+            setError(true)
         });
 
             
@@ -921,6 +924,10 @@ const Explore = () => {
 
     if (loading) {
         return <Loader />;
+    }
+
+    if (error) {
+        return <Error />
     }
 
 
@@ -943,7 +950,7 @@ const Explore = () => {
 
     return (
         <div className="blog">
-            <h1 className="title">Explore {pluralize(category)}</h1>
+            <h1 className="title">Explore {pluralize(category)} near you</h1>
             <div className="container">
                 {
                     places.map(place => (
@@ -964,7 +971,7 @@ const Explore = () => {
                                 <span className='status'>{place.business_status}</span>
                                 <span className='rating'>{place.rating}&#9733; ({place.user_ratings_total})</span>
                             </div>
-                            <a style={{pointerEvents: 'none'}} href="/">
+                            <a href={`https://www.google.com/maps/dir/?api=1&destination=${place.geometry.location.lat}%2C${place.geometry.location.lng}`}>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>    
                             </a>
                         </div>

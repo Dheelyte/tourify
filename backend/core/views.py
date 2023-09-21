@@ -1,3 +1,4 @@
+import os
 import requests
 import base64
 from rest_framework.views import APIView
@@ -12,7 +13,7 @@ from rest_framework import status
 class GetPlaceInfo(APIView):
     
     def post(self, request):
-        api_key = "AIzaSyASRxkFuU7msiv43q1j0JZQIlX5du_oaWU"
+        api_key = os.environ.get('API_KEY')
 
         try:
             keyword = request.data.get('keyword')
